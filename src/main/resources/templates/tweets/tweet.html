@@ -3,7 +3,7 @@
       <span><img th:src="@{/images/arrow_top.png}" /></span>
       <ul class="more_list">
         <li>
-          <a th:href="@{/tweets/{tweetId}(tweetId=${})}">詳細</a>
+          <a th:href="@{/tweets/{tweetId}(tweetId=${tweet.id})}">詳細</a>
         </li>
         <div th:if="${#authorization.expression('isAuthenticated()') and #authentication?.principal.getId() == tweet.user.id}">
           <li>

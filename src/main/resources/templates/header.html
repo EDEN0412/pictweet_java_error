@@ -14,7 +14,7 @@
             </li>
           </ul>
         </span>
-        <a class="post" th:href="@{/}">投稿する</a>
+        <a class="post" th:href="@{/tweets/new}">投稿する</a>
       </div>
 
       <div class="grid-6" th:if="${#authorization.expression('!isAuthenticated()')}">

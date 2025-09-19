@@ -45,6 +45,7 @@ public class CommentController {
     }
 
     CommentEntity comment = new CommentEntity();
+    comment.setText(commentForm.getText());
     comment.setTweet(tweet);
     comment.setUser(userRepository.findById(currentUser.getId()));
 

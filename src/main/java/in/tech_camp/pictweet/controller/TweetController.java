@@ -31,7 +31,7 @@ public class TweetController {
 
   private final UserRepository userRepository;
 
-  @GetMapping("//")
+  @GetMapping("/")
   public String showIndex(Model model) {
         List<TweetEntity> tweets = tweetRepository.findAll();
         SearchForm searchForm = new SearchForm();

@@ -2,21 +2,29 @@ package in.tech_camp.pictweet.form;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.validation.BindingResult;
 
 import in.tech_camp.pictweet.factory.UserFormFactory;
+import in.tech_camp.pictweet.factory.TweetFormFactory;
 import in.tech_camp.pictweet.validation.ValidationPriority1;
+import in.tech_camp.pictweet.validation.ValidationPriority2;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
+import in.tech_camp.pictweet.form.TweetForm;
 
 @ActiveProfiles("test")
 public class UserFormUnitTest {
     private UserForm userForm;
+    private TweetForm tweetForm;
     private Validator validator;
     private BindingResult bindingResult;
 
@@ -25,7 +33,8 @@ public class UserFormUnitTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
         userForm = UserFormFactory.createUser();
-        bindingResult = Mockito.mock(BindingResult.class);
+        tweetForm = TweetFormFactory.createTweet();
+        bindingResult = mock(BindingResult.class);
     }
 
     @Nested
